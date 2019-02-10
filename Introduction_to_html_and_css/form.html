@@ -28,11 +28,11 @@
                 <div class="form-content">
                     <div>
                         <label for="title">Title:*</label><br>
-                        <input type="text" id="title">
+                        <input type="text" id="title" required>
                     </div>
                     <div>
                         <label for="desc">Description:*</label><br>
-                        <textarea rows="4"  id="desc"></textarea>
+                        <textarea rows="4"  id="desc" required></textarea>
                     </div>
                     <div>
                         <label for="os">Operating System:</label><br>
@@ -46,7 +46,7 @@
                     </div>
                     <div>
                         <label for="product">Product:*</label><br>
-                        <select id="product">
+                        <select id="product" required>
                             <option value="formoid">Formoid</option>
                             <option value="ui">UI</option>
                             <option value="login">Login</option>
@@ -82,7 +82,6 @@
                 <div class="form-footer">
                     <div><input type="submit" value="Send"></div>
                 </div>
-
             </form>
         </div>
     </div>
