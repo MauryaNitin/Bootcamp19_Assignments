@@ -107,30 +107,49 @@
 }
 
 
-.upload-btn{
-    border: #BBC0CA 2px solid;
-    border-radius: 5px;
+/*#attachments{*/
+    /*border: #BBC0CA 2px solid;*/
+    /*border-radius: 5px;*/
+    /*position: relative;*/
+    /*!*width: 100%;*!*/
+    /*!*padding: 5px;*!*/
+    /*!*color: white;*!*/
+    /*!*display: inline-block;*!*/
+    /*!*background-color: white;*!*/
+/*}*/
+
+.file{
     position: relative;
-    width: 100%;
-    padding: 5px;
-    color: white;
     display: inline-block;
-    background-color: white;
+    width: 100%;
+    cursor: pointer;
 }
 
-.upload-btn div{
+.upload-btn {
     border: #BBC0CA 3px solid;
     border-radius: 0 5px 5px 0;
-    padding: 5px;
-    position: absolute;
     display: inline-block;
     background-color: #BBC0CA;
-    top :0;
+    position: absolute;
+    bottom: 2px;
     right: 0;
+    color: white;
+    width: 25%;
+    text-align: center;
 }
 
-#attachments{
-    visibility: hidden;
+.upload-btn-input{
+    border: #BBC0CA 2px solid;
+    border-radius: 5px;
+    cursor: pointer;
+    overflow: hidden;
+}
+
+input[type=file] {
+    cursor: pointer;
+    width: 100%;
+    position: relative;
+    left: -20%;
 }
 
 .form-footer{
