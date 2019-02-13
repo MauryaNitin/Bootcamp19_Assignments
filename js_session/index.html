@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>To The New</title>
+    <style>
+        body{
+            width: 760px;
+            margin: 0 auto;
+        }
+        body div{
+            margin: 20px;
+            padding: 10px;
+            border: 2px red solid;
+            background: lightblue;
+        }
+        button {
+            background: teal;
+            color: white;
+            border: 2px teal solid;
+            padding: 5px;
+            border-radius: 5px;
+            font-weight: bold;
+        }
+    </style>
+</head>
+<body>
+
+<div id="ques1">
+    <button onclick="get_si_input()">Calculate Simple Interest</button>
+</div>
+
+
+<div id="ques2">
+    <button onclick="get_string()">Check palindrome</button>
+</div>
+
+
+<div id="ques3">
+    <div>
+        <label for="circle">Enter Radius of Circle: </label>
+        <input type="text" id="circle">
+        <button onclick="area()">Calculate Area</button>
+    </div>
+    <div>The Area of Circle is: <div id="ques3-result"></div></div>
+</div>
+
+
+<div id="ques4">
+    <div>
+        Original Object:
+        <div id="show-obj-orig"></div>
+    </div>
+
+    <div>
+        Copied Object:
+        <button onclick="start_cpy()">Copy Object</button>
+        <div id="show-obj-cpy"></div>
+    </div>
+    <div>Original === Copied:
+    <span id="obj_equality">
+    </span>
+    </div>
+</div>
+
+<div id="ques5">
+    <div>Employees Info: <div id="emp-info"></div></div>
+    <div><div onclick="filter_emp()"><button>Filter Emp by Age</button><div id="fil"></div></div></div>
+    <div><div onclick="increment()"><button>Increment salary</button><div id="inc"></div></div></div>
+    <div><div onclick="group_by_age()"><button>Group by Age</button><div id="age"></div></div></div>
+</div>
+<script src="si.js"></script>
+<script src="string_rev.js"></script>
+<script src="area_circle.js"></script>
+<script src="cpy_object.js"></script>
+<script src="employee.js"></script>
+</body>
+</html>
