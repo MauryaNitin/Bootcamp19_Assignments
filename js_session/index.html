@@ -11,7 +11,6 @@
         body div{
             margin: 20px;
             padding: 10px;
-            border: 2px red solid;
             background: lightblue;
         }
         button {
@@ -25,18 +24,21 @@
     </style>
 </head>
 <body>
-
+<h1 style="text-align: center">Assignment - Introduction to Javascript</h1>
 <div id="ques1">
+    1. Prompt for amount, interest rate and no. of years and calculate simple interest.
     <button onclick="get_si_input()">Calculate Simple Interest</button>
 </div>
 
 
 <div id="ques2">
+    2. Is palindrome string.
     <button onclick="get_string()">Check palindrome</button>
 </div>
 
 
 <div id="ques3">
+    3. Area of circle
     <div>
         <label for="circle">Enter Radius of Circle: </label>
         <input type="text" id="circle">
@@ -47,6 +49,7 @@
 
 
 <div id="ques4">
+    4. Copy information of one object to another and log it to console.
     <div>
         Original Object:
         <div id="show-obj-orig"></div>
@@ -64,10 +67,13 @@
 </div>
 
 <div id="ques5">
-    <div>Employees Info: <div id="emp-info"></div></div>
-    <div><div onclick="filter_emp()"><button>Filter Emp by Age</button><div id="fil"></div></div></div>
-    <div><div onclick="increment()"><button>Increment salary</button><div id="inc"></div></div></div>
-    <div><div onclick="group_by_age()"><button>Group by Age</button><div id="age"></div></div></div>
+    <div>5. Create a list of objects of Employee with info as follow :<br>
+        Name, age, salary ,DOB
+        <br>
+        <br>Employees Info: <div id="emp-info"></div></div>
+    <div>Filter all employees with salary greater than 5000<br><div onclick="filter_emp()"><button>Filter Emp by Age</button><div id="fil"></div></div></div>
+    <div>Fetch employees with salary less than 1000 and age greater than 20. Then give them an increment 5 times their salary.<div onclick="increment()"><button>Increment salary</button><div id="inc"></div></div></div>
+    <div>Group employee on the basis of their age<div onclick="group_by_age()"><button>Group by Age</button><div id="age"></div></div></div>
 </div>
 <script src="si.js"></script>
 <script src="string_rev.js"></script>
