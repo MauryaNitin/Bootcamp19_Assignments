@@ -234,9 +234,8 @@ function ques16() {
             async: false,
             contentType: "application/json; charset=utf-8",
             success: function (msg) {
-                console.log(JSON.stringify(msg));
                 for(var i = 0; i < msg.length; i++){
-                    $('.shw-table-2').append('<tr><td>' + msg[i].id + '</td><td>' + msg[i].name + '</td><td>' + msg[i].email + '</td><td><a class="close-btn" href="">X</a></td></tr>');
+                    $('.shw-table-2').append('<tr><td class=' + msg[i].id + '>' + msg[i].id + '</td><td>' + msg[i].name + '</td><td>' + msg[i].email + '</td><td><a class="close-btn" href="javascript:void(0);">X</a></td></tr>');
                 }
             },
             error: function (err) {
@@ -244,25 +243,20 @@ function ques16() {
             }
         });
 
-        $('.shw-table-2').on('click', $('.close-btn'), function (e) {
+        $(document).on('click', 'a.close-btn' ,function (e) {
             e.preventDefault();
+            var el = $(this).parent().parent();
+            var post_id = el.find('td:first').text();
             $.ajax({
-                type: "DELETE",
-                url: "https://jsonplaceholder.typicode.com/users/" + $(this).parent().firstChild().text(),
-                async: false,
-                contentType: "application/json; charset=utf-8",
-                success: function (msg) {
-                    // console.log(JSON.stringify(msg));
-                    // for(var i = 0; i < msg.length; i++){
-                    //     $('.shw-table-2').append('<tr><td>' + msg[i].id + '</td><td>' + msg[i].name + '</td><td>' + msg[i].email + '</td><td><a class="close-btn" href="">X</a></td></tr>');
-                    // }
-                    console.log(msg);
-                },
-                error: function (err) {
-                    console.log(err);
+                type: "PUT",
+                url: "https://jsonplaceholder.typicode.com/posts/" + post_id,
+                success: function (res) {
+                    if(post_id == res.id) {
+                        el.remove();
+                    }
                 }
-            })
-        })
+            });
+        });
     });
 
 }
@@ -274,5 +268,14 @@ function ques16() {
 
 
 function ques17() {
-
+    var images = ['images/1.jpg','images/2.jpg','images/3.jpg','images/4.jpg','images/5.jpg','images/6.jpg'];
+    var count = images.length;
+    $('#start-ss').click(function () {
+        setInterval(start_slider, 500);
+    })
+    function start_slider() {
+        $('#shw-images').attr('src', images[(++(images.length))%count]).animate({
+            transition: 0.8
+        });
+    }
 }
