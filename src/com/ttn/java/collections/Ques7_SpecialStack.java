@@ -17,16 +17,28 @@ interface MyStack{
 
 class SpecialStack implements MyStack{
     private final int MAXSIZE = 100;
-    private int minimum = Integer.MAX_VALUE;
-    private final LinkedList<Integer> stack = new LinkedList<>();
+    private LinkedList<Integer> stack = new LinkedList<>();
+    private LinkedList<Integer> minStack = new LinkedList<>();
+    private int minimum = 0;
 
     public void push(int element){
-        if(element < minimum){
+        if(stack.size() == 0){
             minimum = element;
+            minStack.push(element);
+            stack.push(element);
         }
-        stack.push(element);
+        else if(element < minimum){
+            minimum = element;
+            minStack.push(element);
+            stack.push(element);
+        }
+        else{
+            minStack.push(minimum);
+            stack.push(element);
+        }
     }
     public int pop(){
+        minStack.pop();
         return stack.pop();
     }
     public boolean isFull(){
@@ -36,7 +48,7 @@ class SpecialStack implements MyStack{
        return (stack.size() == 0);
     }
     public int getMin(){
-        return minimum;
+        return minStack.getFirst();
     }
 
     @Override
@@ -62,11 +74,17 @@ public class Ques7_SpecialStack {
         System.out.println("Stack : " + s);
 
         System.out.println("Popped: " + s.pop());
-        System.out.println("Popped: " + s.pop());
 
         System.out.println("Is Full: " + s.isFull());
 
         System.out.println("Is Empty: " + s.isEmpty());
+
+        System.out.println("Minimum Element: " + s.getMin());
+
+        System.out.println("Popped: " + s.pop());
+        System.out.println("Popped: " + s.pop());
+
+        System.out.println("Stack : " + s);
 
         System.out.println("Minimum Element: " + s.getMin());
 
