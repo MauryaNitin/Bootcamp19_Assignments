@@ -7,20 +7,20 @@ package com.ttn.java.collections;
 import java.util.*;
 
 public class Ques6_decreasing_frequency {
-    public static LinkedHashMap<Integer, Integer> sortByValues( LinkedHashMap<Integer, Integer> hashMap){
+    public static Map<Character, Integer> sortByValues( Map<Character, Integer> hashMap){
 
-        List<Map.Entry<Integer, Integer>> listOfEntries = new LinkedList<>(hashMap.entrySet());
+        List<Map.Entry<Character, Integer>> listOfEntries = new LinkedList<>(hashMap.entrySet());
 
-        Collections.sort(listOfEntries, new Comparator<Map.Entry<Integer, Integer>>() {
+        Collections.sort(listOfEntries, new Comparator<Map.Entry<Character, Integer>>() {
             @Override
-            public int compare(Map.Entry<Integer, Integer> o1, Map.Entry<Integer, Integer> o2) {
+            public int compare(Map.Entry<Character, Integer> o1, Map.Entry<Character, Integer> o2) {
                 return -(o1.getValue().compareTo(o2.getValue()));
             }
         });
 
-        LinkedHashMap<Integer, Integer> sortedMap = new LinkedHashMap<>();
+        Map<Character, Integer> sortedMap = new LinkedHashMap<>();
 
-        for (Map.Entry<Integer, Integer> entry : listOfEntries) {
+        for (Map.Entry<Character, Integer> entry : listOfEntries) {
             sortedMap.put(entry.getKey(), entry.getValue());
         }
         return sortedMap;
@@ -29,22 +29,22 @@ public class Ques6_decreasing_frequency {
 
     public static void main(String[] args) {
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter size of Array: ");
-        int size = scan.nextInt();
-        int num;
-        System.out.println("Enter the elements: ");
-        LinkedHashMap<Integer, Integer> hm = new LinkedHashMap<>();
-        for(int i = 0 ; i < size; i++){
-            num = scan.nextInt();
-            if(hm.containsKey(num)){
-                hm.put(num, hm.get(num) + 1);
+        System.out.println("Enter a String: ");
+        String str = scan.nextLine();
+
+        char[] characters = str.replaceAll(" ", "").trim().toCharArray();
+        Map<Character, Integer> hm = new LinkedHashMap<>();
+
+        for(int i = 0 ; i < characters.length; i++){
+            if(hm.containsKey(characters[i])){
+                hm.put(characters[i], hm.get(characters[i]) + 1);
             }
             else{
-                hm.put(num, 1);
+                hm.put(characters[i], 1);
             }
         }
 
-        HashMap<Integer, Integer> sortedMap = sortByValues(hm);
+        Map<Character, Integer> sortedMap = sortByValues(hm);
 
         System.out.println("Sorted Map: " + sortedMap);
 
