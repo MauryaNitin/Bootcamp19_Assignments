@@ -17,7 +17,7 @@ interface Subtractor{
     int subtract(int a, int b);
 }
 
-class Calculate implements Adder, Subtractor{
+class Calculate{
     public int add(int a, int b){
         return a + b;
     }
