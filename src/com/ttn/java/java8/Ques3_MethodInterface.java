@@ -1,7 +1,6 @@
 package com.ttn.java.java8;
 
 import java.util.function.BiFunction;
-import java.util.function.Supplier;
 
 /**
  * 3. Using (instance) Method reference create and apply add and subtract method and using (Static) Method reference
@@ -28,8 +27,11 @@ class Calculate implements Adder, Subtractor{
 }
 
 @FunctionalInterface
-interface Multiplier{
-    void display();
+interface MultiplierInterface{
+    int multiply(int a, int b);
+}
+
+class Multiplication{
     static int multiply(int a, int b){
         return (a*b);
     }
@@ -47,7 +49,12 @@ public class Ques3_MethodInterface {
         System.out.println("Subtraction: " + subtractor.subtract(9, 6));
 
 
-        biFunction = Multiplier::multiply;
-        System.out.println("Multiplication: " + biFunction.apply(5,9));
+        MultiplierInterface multiplier = Multiplication::multiply;
+        System.out.println("Multiplication: " + multiplier.multiply(5,9));
+
+//        biFunction = Multiplier::multiply;
+//        System.out.println("Multiplication: " + biFunction.apply(5,9));
+
+
     }
 }
