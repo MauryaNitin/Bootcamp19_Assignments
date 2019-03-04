@@ -129,11 +129,12 @@ class Customer{
         this.phn = phn;
     }
 
-    public void placeOrder(List<Coffee> coffees, double amountReceived){
-        o = new Order();
-        for(Coffee c : coffees){
-            o.addItems(c);
-        }
+    public void placeOrder(Order order, double amountReceived){
+//        o = new Order();
+//        for(Coffee c : coffees){
+//            o.addItems(c);
+//        }
+        o = order;
         pay(o, amountReceived);
     }
 
@@ -168,6 +169,7 @@ class Cashier{
         if(o.totalAmount() <= amountReceived){
             CoffeeShop.addOrder(o);
             Customer.token = Token.setToken();
+            System.out.println("Your Order placed Successfully. Token No: " + Customer.token);
         }
         else{
             System.out.println("Payment Failed!");
@@ -203,6 +205,12 @@ class Barista{
 
 public class Ques10_Coffee_shop {
     public static void main(String[] args) {
+        Customer c1 = new Customer("Nitin", "8130137906");
+        Order o1 = new Order();
+        o1.addItems(Coffee.Cappuchino);
+        o1.addItems(Coffee.Espresso);
+        o1.addItems(Coffee.Cappuchino);
+        c1.placeOrder(o1, 10000);
 
     }
 }

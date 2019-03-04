@@ -32,7 +32,6 @@ public class Ques3_Produce_Error {
         */
         try{
             Car c1 = new Car("BMW");
-            c1.showName();
         }
         catch (NoClassDefFoundError err){
             System.out.println("Class Definition Not Found: " + err.getMessage());

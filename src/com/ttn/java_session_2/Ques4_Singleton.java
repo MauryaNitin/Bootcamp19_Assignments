@@ -29,6 +29,5 @@ public class Ques4_Singleton {
         Singleton_example obj3 = Singleton_example.getInstance();
         System.out.println("Is obj1 is equal to obj2 : " + (obj1 == obj2));
         System.out.println("Is obj2 is equal to obj3 : " + (obj2 == obj3));
-
     }
 }
