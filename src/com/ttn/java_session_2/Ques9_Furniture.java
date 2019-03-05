@@ -110,6 +110,7 @@ public class Ques9_Furniture {
         System.out.println("\n");
 
         new Chair("Metal").stressTest();
+        System.out.println("\n");
 
         new Table("abc").stressTest();
     }

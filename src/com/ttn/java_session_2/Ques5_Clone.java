@@ -20,6 +20,7 @@ class Animal implements Cloneable{
         System.out.println(this.name + '\n');
     }
 
+    @Override
     public Object clone() throws CloneNotSupportedException{
         return super.clone();
     }

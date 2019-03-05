@@ -23,7 +23,7 @@ public class Ques13_Custom_exception {
 
         }
         catch (MyException exp){
-            System.out.println("Caught custom exception: " + exp.getMessage());
+            System.out.println("\nCaught custom exception: " + exp.getMessage());
             exp.printStackTrace();
         }
     }

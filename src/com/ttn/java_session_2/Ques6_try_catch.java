@@ -9,8 +9,6 @@ import java.io.IOException;
  *  6. WAP showing try, multi-catch and finally blocks.
  */
 
-
-
 public class Ques6_try_catch {
     private static BufferedReader f;
     public static void main(String[] args) throws IOException {
@@ -35,9 +33,11 @@ public class Ques6_try_catch {
         }
         finally{
             try{
-                f.close();
-                System.out.println("File closed Successfully.");
-            }catch (NullPointerException e){
+                if(f!=null) {
+                    f.close();
+                    System.out.println("File closed Successfully.");
+                }
+            }catch (Exception e){
                 System.out.println("Error occurred during closing file: " + e.getMessage());
             }
         }
