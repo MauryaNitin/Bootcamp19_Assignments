@@ -1,0 +1,169 @@
+Ques 1.
+Look up java plugin documentation. Make changes in manifest to make it executable with correct class.
+When run using java -jar JAR_NAME_HERE the output should be text "Hello World" on the console.
+
+Step 1: Apply plugin 'java' in build.gradle file.
+
+> apply plugin : 'java'
+
+Step 2: Add manifest attributes for jar files.
+
+> jar {
+    manifest{
+        attributes(
+                'Implementation-Title' : "myJar",
+                'Main-Class' : "com.ttn.gradle_project.App"
+        )
+    }
+}
+
+Step 3: Build the gradle project.
+
+> gradle -q build
+
+Step 4: Run the jar file using command.
+
+> java -jar build/libs/gradle_assignment.jar
+
+Expected Output: Hello World!
+
+Ques 2.
+Look up idea plugin. make changes in build.gradle so that the sources of src/main/java as well as src/main/java2 are taken as sources.
+Ensure that when you make JAR file class files in both are added to the JAR. This will teach you how projects with non-conventional structure can be used with gradle.
+
+Step 1: Add source dirs of java and java2 in sourceSets in build.gradle file.
+
+> sourceSets {
+    main{
+        java{
+            srcDirs = ['src/main/java', 'src/main/java2']
+        }
+    }
+}
+
+Step 2: Create Jar files by building the project.
+
+> gradle -q build
+
+Step 3: Check the contents of jar file such that it contains all the classes specified in srcDirs.
+
+>  jar tf build/libs/gradle_assignment.jar
+
+Expected Output: META-INF/
+                 META-INF/MANIFEST.MF
+                 com/
+                 com/ttn/
+                 com/ttn/gradle_project/
+                 com/ttn/gradle_project/NewApp.class
+                 com/ttn/gradle_project/App.class
+
+Ques 3.
+Add 2 files file1.xml and file1.txt in src/main/resources manually.
+Make changes so that when creating jar only file1.xml is added to the jar.
+
+Step 1: Create resources directory in src/main/ and create two files 'file1.txt' and 'file1.xml' in it manually.
+
+Step 2: Add the following code in build.gradle to exclude file1.txt from jar creation
+
+> sourceSets {
+     main {
+         resources{
+             srcDirs = ['src/main/resources']
+             exclude 'file.txt'
+         }
+     }
+}
+
+Expected Output: META-INF/
+                 META-INF/MANIFEST.MF
+                 com/
+                 com/ttn/
+                 com/ttn/gradle_project/
+                 com/ttn/gradle_project/NewApp.class
+                 com/ttn/gradle_project/App.class
+                 file1.xml
+
+Ques 4.
+What is an uberjar. Find how to make changes so you can use commons lang3 StringUtil in your jar. Make this uber jar executable.
+The output should be text but that should be using the StringUtils class of commons lang3
+
+Step 1. Add a maven repository
+
+> repositories {
+      mavenCentral()
+  }
+
+Step 2. Add 'apache.commons.lang3' dependency in the build.gradle file.
+
+> dependencies {
+    compile 'org.apache.commons:commons-lang3:3.6'
+}
+
+Step 3. To create a uber jar Add the following code -
+
+> jar {
+    manifest{
+        attributes(
+                'Implementation-Title' : "myJar",
+                'Main-Class' : "com.ttn.gradle_project.App"
+        )
+    }
+    from{
+        (configurations.compile).collect{it.isDirectory() ? it : zipTree(it)}
+    }
+}
+
+Step 3. Add a new class in the src/main/java/ which uses our newly added dependency StringUtils from apache.commons.lang3
+
+Step 4. Build the gradle project
+
+Step 5. Check the contents of jar, It should include the additional dependency (apache commoms lang3)in the jar as well.
+
+> jar tf build/libs/gradle_assignment.jar
+
+Expected Output:
+META-INF/
+META-INF/MANIFEST.MF
+com/
+com/ttn/
+com/ttn/gradle_project/
+com/ttn/gradle_project/App.class
+file1.xml
+META-INF/LICENSE.txt
+META-INF/NOTICE.txt
+META-INF/maven/
+META-INF/maven/org.apache.commons/
+META-INF/maven/org.apache.commons/commons-lang3/
+META-INF/maven/org.apache.commons/commons-lang3/pom.properties
+META-INF/maven/org.apache.commons/commons-lang3/pom.xml
+org/
+org/apache/
+org/apache/commons/
+org/apache/commons/lang3/
+org/apache/commons/lang3/AnnotationUtils$1.class ....
+
+Ques 5.
+Find a maven repository and add it as a repository. You can use bintray, jcenter
+
+Step 1. Added junit dependency from maven central repository in the build.gradle file.
+
+> dependencies {
+      testCompile 'org.junit.jupiter:junit-jupiter-api:5.4.0'
+      testRuntime 'org.junit.jupiter:junit-jupiter-engine:5.4.0'
+  }
+
+
+Ques 6.
+Write a task in file "mytasks.gradle" and use it in your build.gradle
+
+Step 1. Created a myTasks.gradle file in the project.
+
+Step 2. Added following code to import "myTasks.gradle" file in build.gradle.
+
+> apply from: "myTasks.gradle"
+
+Step 3. Added a task in "myTasks.gradle"
+
+> task greet << {
+      println "Hello World!"
+  }
