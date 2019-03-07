@@ -25,7 +25,7 @@ class OrderServiceSpec extends Specification {
 
         then:
         1 * emailService.sendEmail(order)
-        order.getPriceWithTex() == 480d
+        order.getPriceWithTax() == 480d
     }
 
     @Unroll("Testing PlaceOrder() stubing example: #sno")
@@ -49,7 +49,7 @@ class OrderServiceSpec extends Specification {
 
         then:
         1 * emailService.sendEmail(order, cc) >> inputStatus
-        order.getPriceWithTex() == 480d
+        order.getPriceWithTax() == 480d
         status == expectedStatus
 
         where:

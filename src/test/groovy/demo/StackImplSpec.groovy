@@ -100,7 +100,8 @@ class StackImplSpec extends Specification {
         stack.push(new Integer(1))
 
         then:
-//        thrown(Exception)
-        thrown(MissingMethodException)
+        thrown(Exception)
+
+//        thrown(MissingMethodException)
     }
 }

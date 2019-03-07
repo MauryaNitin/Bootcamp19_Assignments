@@ -23,13 +23,13 @@ public class OrderService {
 
     void placeOrder(Order order) {
         double priceWithTex = order.getPrice() * 20 / 100;
-        order.setPriceWithTex(priceWithTex);
+        order.setPriceWithTax(priceWithTex);
         emailService.sendEmail(order);
     }
 
     boolean placeOrder(Order order, String cc) {
         double priceWithTex = order.getPrice() * 20 / 100;
-        order.setPriceWithTex(priceWithTex);
+        order.setPriceWithTax(priceWithTex);
         return emailService.sendEmail(order, cc);
     }
 }

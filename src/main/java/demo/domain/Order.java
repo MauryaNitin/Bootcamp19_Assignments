@@ -8,7 +8,7 @@ public class Order {
     private int quantity;
     private String itemName;
     private double price;
-    private double priceWithTex;
+    private double priceWithTax;
 
     public Order() {}
 
@@ -45,12 +45,12 @@ public class Order {
         return this;
     }
 
-    public double getPriceWithTex() {
-        return priceWithTex;
+    public double getPriceWithTax() {
+        return priceWithTax;
     }
 
-    public Order setPriceWithTex(double priceWithTex) {
-        this.priceWithTex = priceWithTex;
+    public Order setPriceWithTax(double priceWithTax) {
+        this.priceWithTax = priceWithTax;
         return this;
     }
 }
