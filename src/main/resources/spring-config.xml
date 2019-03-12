@@ -1,0 +1,54 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--Ques 1-->
+    <bean id="database" class="com.ttn.springCore.Database">
+        <property name="name" value="SQLdb"/>
+        <property name="port" value="8080"/>
+    </bean>
+
+    <!--Ques 2-->
+    <bean id="tea" class="com.ttn.springCore.Tea" />
+    <bean id="expressTea" class="com.ttn.springCore.ExpressTea" />
+
+    <!--Ques 3-->  <!--Ques 7 setting bean scope-->
+    <bean id="teaRestaurant" class="com.ttn.springCore.Restaurant" scope="prototype">
+        <property name="drink" ref="tea"/>
+    </bean>
+
+    <!--Ques 4-->
+    <bean id="expressTeaRestaurant" class="com.ttn.springCore.Restaurant">
+        <property name="drink">
+            <bean class="com.ttn.springCore.ExpressTea" />
+        </property>
+    </bean>
+
+    <!--Ques 5-->
+    <bean id="complexBean" class="com.ttn.springCore.Complex">
+        <property name="list">
+            <list>
+                <value>20</value>
+                <value>15</value>
+                <value>30</value>
+                <value>4</value>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value>56</value>
+                <value>26</value>
+                <value>12</value>
+                <value>56</value>
+            </set>
+        </property>
+        <property name="map">
+            <map>
+                <entry key="abc" value="22"/>
+                <entry key="pqr" value="28"/>
+                <entry key="xyz" value="21"/>
+            </map>
+        </property>
+    </bean>
+</beans>

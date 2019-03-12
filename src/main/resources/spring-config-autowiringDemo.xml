@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <!--Ques 6-->
+    <bean id="restaurant" class="com.ttn.springCore.AutowiringDemo.Restaurant" autowire="byName" />
+    <!--<bean id="restaurant" class="com.ttn.springCore.AutowiringDemo.Restaurant" autowire="byType"/>-->
+    <!--<bean id="restaurant" class="com.ttn.springCore.AutowiringDemo.Restaurant" autowire="constructor"/>-->
+
+    <bean id="drink" class="com.ttn.springCore.AutowiringDemo.Tea" />
+</beans>
