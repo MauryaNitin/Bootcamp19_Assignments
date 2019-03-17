@@ -6,6 +6,9 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 public class UserMapper implements RowMapper<User> {
+
+    // Q10 - Use a rowMapper to get the User object when you query for a user
+
     @Override
     public User mapRow(ResultSet rs, int rowNum) throws SQLException {
         User user = new User();

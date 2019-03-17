@@ -1,7 +1,6 @@
 package springDataAccess;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
 import org.springframework.transaction.annotation.Transactional;
@@ -12,10 +11,11 @@ public class EmailService {
     @Autowired
     UserDAO userDAO;
 
+    // Inner Transaction
     @Transactional(propagation = Propagation.REQUIRED)
-    public void sendMail(User user){
+    public void sendMail(User user) {
         int res = userDAO.addUser(user);
-        System.out.println("\nEmail Send: " + ((res == 1) ? "success": "failed"));
+        System.out.println("\nEmail Send: " + ((res == 1) ? "success" : "failed"));
         throw new RuntimeException("Email sent failed! - Server Down");
     }
 

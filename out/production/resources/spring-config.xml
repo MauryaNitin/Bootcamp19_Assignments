@@ -14,8 +14,6 @@
 
     <context:component-scan  base-package="springDataAccess"/>
 
-    <bean id="userDao" class="springDataAccess.UserDAO" />
-
     <!--<bean id="driverManagerDataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
         <!--<property name="url" value="jdbc:mysql://localhost:3306/springDemo"/>-->
         <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
