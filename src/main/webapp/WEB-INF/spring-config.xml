@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:mvc="http://www.springframework.org/schema/cache"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+       http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/cache http://www.springframework.org/schema/cache/spring-cache.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
+
+    <!--<mvc:annotation-driven />-->
+    <context:component-scan base-package="com.ttn.springMvc" />
+    <context:annotation-config />
+
+
+    <bean class="org.springframework.web.servlet.handler.BeanNameUrlHandlerMapping" />
+    <bean name="/index.html" class="com.ttn.springMvc.Q1_Q2.StudentController"/>
+
+    <bean name="/assignment" class="com.ttn.springMvc.Q1_Q2.StudentMultiActionController" />
+    <bean name="/showHomepage" class="com.ttn.springMvc.Q1_Q2.StudentMultiActionController" />
+    <bean name="/showResponse" class="com.ttn.springMvc.Q1_Q2.StudentMultiActionController"/>
+
+    <bean id="viewResolver"
+          class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <property name="prefix">
+            <value>/WEB-INF/views/</value>
+        </property>
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <!--<bean name="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">-->
+        <!--<property name="url" value="jdbc:mysql://localhost:3306/springMvcDemo"/>-->
+        <!--<property name="driverClassName" value="com.mysql.jdbc.Driver"/>-->
+        <!--<property name="username" value="nitin"/>-->
+        <!--<property name="password" value="ttn"/>-->
+    <!--</bean>-->
+
+    <!--<bean name="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate" >-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+    <!--</bean>-->
+</beans>
