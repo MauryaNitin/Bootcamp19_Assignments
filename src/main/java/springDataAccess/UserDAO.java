@@ -20,20 +20,20 @@ import java.util.List;
 @Repository
 public class UserDAO {
 
-    @Autowired
-    DriverManagerDataSource dataSource;         // Q3
-
 //    @Autowired
-//    BasicDataSource dataSource;               // Q3
+//    DriverManagerDataSource dataSource;         // Q3
+
+    @Autowired
+    BasicDataSource dataSource;               // Q3
 
 //    @Autowired
 //    SingleConnectionDataSource dataSource;    // Q4
 
     @Autowired
-    SessionFactory sessionFactoryBean;          // Q11
+    JdbcTemplate jdbcTemplate;                  // Q5
 
     @Autowired
-    JdbcTemplate jdbcTemplate;                  // Q5
+    SessionFactory sessionFactoryBean;          // Q11
 
 
     // Q3 and Q4

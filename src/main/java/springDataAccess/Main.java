@@ -59,7 +59,7 @@ public class Main {
         user.setAge(35);
         user.setDob("null");
 
-        System.out.println("\nAdding User: " + ((userDAO.addUser(user) == 1) ? "User Added Successfully!" : "Error Occurred!"));
+//        System.out.println("\nAdding User: " + ((userDAO.addUser(user) == 1) ? "User Added Successfully!" : "Error Occurred!"));
 
         System.out.println("\nUser details: " + userDAO.getUserDetails("nitin"));
 
@@ -70,16 +70,10 @@ public class Main {
         System.out.println("\nTotal Records: ");
         userDAO.getTotalRecords();
 
-        User user1 = new User();
-        user1.setName("Arya");
-        user1.setUsername("arya123");
-        user1.setPassword("got19");
-        user1.setAge(21);
-        user1.setDob("01/01/1999");
+        System.out.println("\nAll Users before signup: " + userDAO.getAllUsers().toString().replaceAll("},", "}\n"));
 
-        signupService.signUp(user1);
+        signupService.signUp(user);
 
-        System.out.println("\nTotal Records: ");
-        userDAO.getTotalRecords();
+        System.out.println("\nAll Users from main: " + userDAO.getAllUsers().toString().replaceAll("},", "}\n"));
     }
 }
