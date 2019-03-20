@@ -11,6 +11,7 @@
     <title>To The New</title>
 </head>
 <body>
+    <h2>${heading}</h2>
     <div>
         <h2>Ques 1: Implement AbstractController in StudentController. create a mapping index.html for it and render index.jsp view from it which displays messages "Hello from index.gsp"
         </h2>

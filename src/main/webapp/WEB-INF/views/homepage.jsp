@@ -11,6 +11,11 @@
     <title>Homepage - TO THE NEW</title>
 </head>
 <body>
-    <h2>Homepage</h2>
+    <h2>${heading}</h2>
+
+    <h2> Homepage </h2>
+
+    <h4> ${message} </h4>
+    <h4> ${user} </h4>
 </body>
 </html>

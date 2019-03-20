@@ -11,7 +11,10 @@
     <title>To The New</title>
   </head>
   <body>
-    <h2>Hello from index.jsp.</h2>
+
+  <h2>${heading}</h2>
+
+  <h2>Hello from index.jsp.</h2>
     <a href="/assignment"><input type="submit" value="Open Assignment"></a>
   </body>
 </html>
