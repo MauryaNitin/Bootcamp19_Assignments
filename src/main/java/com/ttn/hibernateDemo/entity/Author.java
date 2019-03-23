@@ -37,25 +37,6 @@ public class Author {
     @OneToOne
     Book book;
 
-//    Unidirectional
-//    @OneToMany
-//    @JoinTable(joinColumns = @JoinColumn(name="Author_id"), inverseJoinColumns = @JoinColumn(name="Book_id"))
-//    List<Book> books = new ArrayList<>();
-
-//    BiDirectional
-//    @OneToMany
-//    @JoinTable(joinColumns = @JoinColumn(name = "Author_id"), inverseJoinColumns = @JoinColumn(name = "Book_id"))
-
-
-//    Ques 17: Implement Many to Many Mapping between AuthorUOTM and Book.
-//    @ManyToMany(cascade = CascadeType.ALL)
-//    @JoinTable(
-//            joinColumns = { @JoinColumn(name = "Author_id") },
-//            inverseJoinColumns = { @JoinColumn(name = "Book_id") }
-//    )
-//    List<Book> books = new ArrayList<>();
-
-
     private Author(AuthorBuilder authorBuilder) {
         this.firstName = authorBuilder.firstName;
         this.lastName = authorBuilder.lastName;
@@ -129,15 +110,6 @@ public class Author {
     public void setBook(Book book) {
         this.book = book;
     }
-
-    //    Q17
-//    public List<Book> getBooks() {
-//        return books;
-//    }
-//
-//    public void setBooks(List<Book> books) {
-//        this.books = books;
-//    }
 
     @Override
     public String toString() {

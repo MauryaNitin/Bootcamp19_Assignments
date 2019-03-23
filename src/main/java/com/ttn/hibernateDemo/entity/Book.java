@@ -13,12 +13,6 @@ public class Book {
     private int id;
     private String name;
 
-//    @ManyToOne
-//    AuthorUOTM author;
-//
-//    @ManyToMany(mappedBy = "books")
-//    List<AuthorUOTM> authorList = new ArrayList<>();
-
     public Book(){
 
     }
@@ -42,12 +36,4 @@ public class Book {
     public void setName(String name) {
         this.name = name;
     }
-
-//    public AuthorUOTM getAuthor() {
-//        return author;
-//    }
-//
-//    public void setAuthor(AuthorUOTM author) {
-//        this.author = author;
-//    }
 }
