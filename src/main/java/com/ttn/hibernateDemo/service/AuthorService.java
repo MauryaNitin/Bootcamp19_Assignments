@@ -12,6 +12,9 @@ import com.ttn.hibernateDemo.UnidirectionalOneToManyDemo.entity.BookUOTM;
 import com.ttn.hibernateDemo.entity.Address;
 import com.ttn.hibernateDemo.entity.Author;
 import com.ttn.hibernateDemo.entity.Book;
+import com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.AddressOTMWET;
+import com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.AuthorOTMWET;
+import com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.BookOTMWET;
 import com.ttn.hibernateDemo.repository.AuthorRepository;
 import com.ttn.hibernateDemo.repository.HibernateUtil;
 import org.hibernate.Session;
@@ -95,7 +98,6 @@ public class AuthorService {
 
     public void bidirectionalOneToManyMappingDemo() {
         AddressBOTM address = new AddressBOTM("street-5", "Canada", "Vancouver");
-        String[] subjects = {"Sub 50", "Sub 20"};
         AuthorBOTM author = new AuthorBOTM.AuthorBuilder(
                 "Charles",
                 "Darwin",
@@ -106,6 +108,25 @@ public class AuthorService {
         BookBOTM book1 = new BookBOTM("Book-7");
         book1.setAuthor(author);
         BookBOTM book2 = new BookBOTM("Book-8");
+        book2.setAuthor(author);
+
+        author.setBooks(Arrays.asList(book1, book2));
+
+        authorRepository.create(author);
+    }
+
+    public void oneToManyWithoutExtraTableDemo() {
+        AddressOTMWET address = new AddressOTMWET("street-44", "India", "Delhi");
+        AuthorOTMWET author = new AuthorOTMWET.AuthorBuilder(
+                "Walter",
+                "White",
+                new Random().nextInt(50) + 18,
+                Calendar.getInstance().getTime()
+        ).setAddress(address).setSubjectsList(Arrays.asList("Sub 28", "Sub 27")).build();
+
+        BookOTMWET book1 = new BookOTMWET("Book-15");
+        book1.setAuthor(author);
+        BookOTMWET book2 = new BookOTMWET("Book-16");
         book2.setAuthor(author);
 
         author.setBooks(Arrays.asList(book1, book2));

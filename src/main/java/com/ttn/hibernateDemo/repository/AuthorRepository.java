@@ -4,6 +4,7 @@ import com.ttn.hibernateDemo.BidirectionalOneToManyDemo.AuthorBOTM;
 import com.ttn.hibernateDemo.ManyToManyDemo.AuthorMTM;
 import com.ttn.hibernateDemo.UnidirectionalOneToManyDemo.entity.AuthorUOTM;
 import com.ttn.hibernateDemo.entity.Author;
+import com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.AuthorOTMWET;
 import org.hibernate.Session;
 
 /**
@@ -55,6 +56,13 @@ public class AuthorRepository {
     }
 
     public void create(AuthorMTM author){
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.save(author);
+        session.getTransaction().commit();
+    }
+
+    public void create(AuthorOTMWET author){
         Session session = HibernateUtil.getSession();
         session.beginTransaction();
         session.save(author);

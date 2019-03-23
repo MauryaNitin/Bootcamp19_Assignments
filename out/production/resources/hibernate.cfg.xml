@@ -20,7 +20,7 @@
 
         <!--drop or re-create database schema at startup-->
         <!-- Ques 3: Use hbm2ddl create to introduce Date of Birth for AuthorUOTM.-->
-        <property name="hbm2ddl.auto">create</property>
+        <property name="hbm2ddl.auto">create-drop</property>
 
         <!-- Ques 4: Use hbm2dll update to insert at least 4 records for AuthorUOTM.-->
         <!--<property name="hbm2ddl.auto">update</property>-->
@@ -37,6 +37,9 @@
 
         <mapping class="com.ttn.hibernateDemo.BidirectionalOneToManyDemo.AuthorBOTM"/>
         <mapping class="com.ttn.hibernateDemo.BidirectionalOneToManyDemo.BookBOTM" />
+
+        <mapping class="com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.AuthorOTMWET"/>
+        <mapping class="com.ttn.hibernateDemo.oneToManyMappingWithoutExtraTableDemo.BookOTMWET"/>
 
         <mapping class="com.ttn.hibernateDemo.ManyToManyDemo.AuthorMTM"/>
         <mapping class="com.ttn.hibernateDemo.ManyToManyDemo.BookMTM"/>

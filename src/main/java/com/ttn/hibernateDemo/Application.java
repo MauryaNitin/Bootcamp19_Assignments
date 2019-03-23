@@ -35,11 +35,11 @@ public class Application {
         authorService.bidirectionalOneToManyMappingDemo();
 
         // One to Many Without Extra Table
-//        authorService.oneToManyWithoutExtraTableDemo();
+        authorService.oneToManyWithoutExtraTableDemo();
 
         // Many to Many Mapping Demo
         authorService.manyToManyMappingDemo();
 
-        HibernateUtil.closeSession();
+//        HibernateUtil.shutdown();
     }
 }
