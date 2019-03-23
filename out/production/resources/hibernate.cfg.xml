@@ -1,0 +1,44 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-configuration PUBLIC "-//Hibernate/Hibernate Configuration DTD 3.0//EN"
+        "http://hibernate.sourceforge.net/hibernate-configuration-3.0.dtd">
+<hibernate-configuration>
+    <session-factory>
+        <!--Database connection settings -->
+        <property name="hibernate.connection.driver_class">com.mysql.jdbc.Driver</property>
+        <property name="hibernate.connection.url">jdbc:mysql://localhost:3306/hibernateDemo</property>
+        <property name="hibernate.connection.username">nitin</property>
+        <property name="hibernate.connection.password">ttn</property>
+
+        <!--JDBC connection pool-->
+        <property name="connection.pool_size">10</property>
+
+        <!-- SQL Dialect-->
+        <property name="hibernate.dialect">org.hibernate.dialect.MySQLDialect</property>
+
+        <!--echo all executed SQL-->
+        <property name="show_sql">true</property>
+
+        <!--drop or re-create database schema at startup-->
+        <!-- Ques 3: Use hbm2ddl create to introduce Date of Birth for AuthorUOTM.-->
+        <property name="hbm2ddl.auto">create</property>
+
+        <!-- Ques 4: Use hbm2dll update to insert at least 4 records for AuthorUOTM.-->
+        <!--<property name="hbm2ddl.auto">update</property>-->
+
+        <!--Ques 5: Perform hbm2dll create-drop by closing session factory.-->
+        <!--<property name="hbm2ddl.auto">create-drop</property>-->
+
+        <!--Annotated entity class-->
+        <mapping class="com.ttn.hibernateDemo.entity.Author"/>
+        <mapping class="com.ttn.hibernateDemo.entity.Book" />
+
+        <mapping class="com.ttn.hibernateDemo.UnidirectionalOneToManyDemo.entity.AuthorUOTM"/>
+        <mapping class="com.ttn.hibernateDemo.UnidirectionalOneToManyDemo.entity.BookUOTM" />
+
+        <mapping class="com.ttn.hibernateDemo.BidirectionalOneToManyDemo.AuthorBOTM"/>
+        <mapping class="com.ttn.hibernateDemo.BidirectionalOneToManyDemo.BookBOTM" />
+
+        <mapping class="com.ttn.hibernateDemo.ManyToManyDemo.AuthorMTM"/>
+        <mapping class="com.ttn.hibernateDemo.ManyToManyDemo.BookMTM"/>
+    </session-factory>
+</hibernate-configuration>
