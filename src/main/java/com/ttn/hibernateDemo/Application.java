@@ -25,20 +25,20 @@ public class Application {
         // delete author 3
         authorService.deleteAuthor(3);
 
-        // One to One Mapping Demo
-        authorService.oneToOneMappingDemo();
-
-        // Unidirectional One To Many Mapping Demo
-        authorService.unidirectionalOneToManyMappingDemo();
+//        // One to One Mapping Demo
+//        authorService.oneToOneMappingDemo();
+//
+//        // Unidirectional One To Many Mapping Demo
+//        authorService.unidirectionalOneToManyMappingDemo();
 
         // Bidirectional One to Many Mapping Demo
         authorService.bidirectionalOneToManyMappingDemo();
 
-        // One to Many Without Extra Table
-        authorService.oneToManyWithoutExtraTableDemo();
-
-        // Many to Many Mapping Demo
-        authorService.manyToManyMappingDemo();
+//        // One to Many Without Extra Table
+//        authorService.oneToManyWithoutExtraTableDemo();
+//
+//        // Many to Many Mapping Demo
+//        authorService.manyToManyMappingDemo();
 
 //        HibernateUtil.shutdown();
     }

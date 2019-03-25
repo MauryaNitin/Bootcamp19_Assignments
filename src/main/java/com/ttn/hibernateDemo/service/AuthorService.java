@@ -112,7 +112,13 @@ public class AuthorService {
 
         author.setBooks(Arrays.asList(book1, book2));
 
-        authorRepository.create(author);
+        Session session = HibernateUtil.getSession();
+        session.beginTransaction();
+        session.save(book1);
+        session.save(book2);
+        session.save(author);
+        session.getTransaction().commit();
+//        authorRepository.create(author);
     }
 
     public void oneToManyWithoutExtraTableDemo() {

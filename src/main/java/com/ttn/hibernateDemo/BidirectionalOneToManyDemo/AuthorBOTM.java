@@ -31,7 +31,7 @@ public class AuthorBOTM {
     @ElementCollection
     private List<String> subjects = new ArrayList<>();
 
-    @OneToMany(cascade = CascadeType.ALL)
+    @OneToMany
     @JoinTable(joinColumns = @JoinColumn(name="Author_id"), inverseJoinColumns = @JoinColumn(name="Book_id"))
     private List<BookBOTM> books = new ArrayList<>();
 
