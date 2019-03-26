@@ -23,23 +23,6 @@ public interface PersonRepository extends CrudRepository<Person,Integer> {
 
     Person findById(Integer id);
 
-//    @Query("SELECT name from Person where id=:id")
-////    String findById(@Param("id") Integer id);
-////
-////    @Query("SELECT id,name from Person where id=:id")
-////    List<Object[]> findById(@Param("id") Integer id);
-////
-//    @Query("SELECT e from Person e where id=:id")
-//    Person findById(@Param("id") Integer id);
-
-//    Person findByNameIs(@Param("name") String name);
-//
-//    List<Person> findAllBySalary(int salary);
-//
-//    List<Person> findByNameOrderByIdDesc(String name);
-//
-
-
     // Ques 6: Use @Query to fetch firstname of the Person whose age is 25.
     @Query("select firstName from Person where age  = :age")
     String[] getFirstNameOfPersonByAge(@Param("age") int age);

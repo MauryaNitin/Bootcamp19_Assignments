@@ -15,35 +15,6 @@ public class PersonService {
     ApplicationContext context = new AnnotationConfigApplicationContext(PersistenceContext.class);
     PersonRepository personRepository = context.getBean(PersonRepository.class);
 
-
-
-//    public void getPersonNameById(int id){
-//        System.out.println(personRepository.findById(id));
-//    }
-//
-//    public void getPersonIdAndNameById(int id){
-//        System.out.println(personRepository.findById(id));
-//    }
-//
-//
-//    public void countPersonsByName(String name){
-//        System.out.println(personRepository.countByName(name));
-//    }
-//
-//    public void getPersonByName(String name){
-//        System.out.println(personRepository.findByNameIs("nitin"));
-//    }
-//
-//    public void getPersonsBySalary(int salary){
-//        System.out.println(personRepository.findAllBySalary(salary));
-//    }
-//
-//    public void getPersonListByNameInDescending(String name){
-//        System.out.println(personRepository.findByNameOrderByIdDesc(name));
-//    }
-
-
-
     // Ques 3: Perform all the methods inside CrudRepository for Person Class.
 
     public void createPerson(Person person){
