@@ -1,0 +1,68 @@
+/* Ques2: Create an external CSS file and use it to modify hello world page background color to grey. */
+body{
+    width: 960px;
+    margin: 0 auto;
+    background: grey;
+}
+
+form{
+    width: 560px;
+    margin: 0 auto;
+    background: white;
+}
+
+form div{
+    padding: 5px;
+}
+
+form select{
+    float: right;
+}
+
+form div>input[type=text], div>input[type=email], div>span, div>input[type=password]{
+    width: 260px;
+    float: right;
+}
+
+.center-header{
+    text-align: center;
+}
+
+form div>input[type=submit]{
+    width: 100%;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+}
+
+th, td {
+    text-align: left;
+    padding: 8px;
+}
+
+tr:nth-child(even){background-color: #f2f2f2}
+tr:nth-child(odd){background-color: lightyellow}
+
+th {
+    background-color: #4CAF50;
+    color: white;
+}
+
+.odd-rows{
+    color: red;
+}
+.even-rows{
+    color: green;
+}
+
+#loader {
+    position: fixed;
+    top: 0;
+    left: 0;
+
+    /* Preserve aspet ratio */
+    min-width: 100%;
+    min-height: 100%;
+}

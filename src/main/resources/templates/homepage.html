@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>To The New</title>
+    <link rel="stylesheet" th:href="@{'/css/homepage.css'}">
+</head>
+<body>
+<div id='loader' style='display: none;'>
+    <img src='/images/loading1.gif' width="100%" height="100%">
+</div>
+<!--Ques 6: Create and split common header and footer in the above-created listing page.-->
+<h1>Homepage</h1>
+<input type="submit" value="Show Alert" onclick="getAlert()">
+<a href="/showTimer"><input type="submit" value="Show Time"></a>
+
+<form action="#" th:action="@{'/register'}" th:object="${employee}" method="POST">
+    <h2 class="center-header">Register</h2>
+    <div>Name: <input type="text" th:field="*{name}"></div>
+    <div>Email: <input type="email" th:field="*{email}"></div>
+    <div>Age: <input type="text" th:field="*{age}"></div>
+    <div>Gender:
+        <span>
+                <input type="radio" name="gender" value="male" checked="checked" th:field="*{gender}">Male
+                <input type="radio" name="gender" value="female" th:field="*{gender}">Female
+        </span>
+    </div>
+    <div>Admin:
+        <span>
+                <input type="checkbox" name="admin" th:field="*{admin}">
+            </span>
+    </div>
+    <div>
+        Role:
+        <select name="role" th:field="*{role}">
+            <option th:each="role : ${T(com.ttn.thymleaf.entity.EmployeeRole).getRoles()}" th:value="${role}"
+                    th:text="${role.getMessage()}"></option>
+        </select>
+    </div>
+    <div>
+        <input type="submit" value="Register">
+    </div>
+</form>
+
+<!-- Ques 10: Add loader in registration form submission which renders load till server return success form submission response-->
+<form id="login-form" action="/login" method="POST">
+    <h2 class="center-header">Login</h2>
+    <div>Email: <input type="email" name="email"></div>
+    <div>Password: <input type="password" name="password"></div>
+    <div>
+        <input type="submit" value="Login">
+    </div>
+</form>
+
+<!--scripts-->
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"
+        integrity="sha256-FgpCb/KJQlLNfOu91ta32o/NMZxltwRo8QtmkMRdAu8="
+        crossorigin="anonymous" type="application/javascript">
+</script>
+
+<script type="application/javascript" th:src="@{'/js/application.js'}"></script>
+
+</body>
+</html>

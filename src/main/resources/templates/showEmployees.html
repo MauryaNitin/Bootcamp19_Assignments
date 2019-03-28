@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Employees - To The New</title>
+    <link rel="stylesheet" th:href="@{'/css/homepage.css'}">
+</head>
+<body>
+<!--Ques 6: Create and split common header and footer in the above-created listing page-->
+<div th:include="~{common-header}"></div>
+<h3>Employees List</h3>
+<table>
+    <th>Name</th>
+    <th>Email</th>
+    <th>Age</th>
+    <th>Gender</th>
+    <th>Role</th>
+    <th>Greet</th>
+    <th:block th:each="employee, index : ${listOfEmployees}">
+        <!--Ques 8: Create a user listing table show alternate row color using a conditional tag.-->
+        <tr th:class="${index.odd} ? 'odd-rows' : 'even-rows'">
+            <td th:text="${employee.name}"></td>
+            <td th:text="${employee.email}"></td>
+            <td th:text="${employee.age}"></td>
+            <td th:text="${employee.gender}"></td>
+            <td th:text="${employee.role.getMessage()}"></td>
+            <!--Ques 5: Show different custom greeting message based on the type of user. For example, if the user is
+            of type admin=true then show "Hello Admin" message on Page else show "Hello User" basis on isAdmin attribute
+             value passed in model data.-->
+            <td th:with="isAdmin = ${employee.admin}">
+                <span th:if="${isAdmin}">Hello, Admin</span>
+                <span th:unless="${isAdmin}">Hello, User</span>
+            </td>
+
+        </tr>
+    </th:block>
+</table>
+<div th:include="~{common-footer}"></div>
+</body>
+</html>
