@@ -43,12 +43,12 @@ public class PostController {
         return new ResponseEntity<Post>(post1, HttpStatus.CREATED);
     }
 
-    @PutMapping("/posts")
-    public ResponseEntity<Post> updatePost(){
+    @PutMapping("/posts/{id}")
+    public ResponseEntity<Post> updatePost(@PathVariable Long id){
         HttpHeaders httpHeaders= new HttpHeaders();
         httpHeaders.add("Content-type","application/json; charset=UTF-8");
-        HttpEntity<Post> request=new HttpEntity<>(new Post(1L,1L,"title1","description1"),httpHeaders);
-        return restTemplate.exchange(url,HttpMethod.PUT,request,Post.class);
+        HttpEntity<Post> request=new HttpEntity<>(new Post(1L,id,"title-new","description1"),httpHeaders);
+        return restTemplate.exchange(url+id,HttpMethod.PUT,request,Post.class);
     }
 
     @DeleteMapping("/posts/{id}")
